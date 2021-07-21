@@ -410,3 +410,5 @@ database/
 test/
 config.json
 *.lock
+
+main.ts

@@ -2,14 +2,11 @@
   "name": "cassanKub",
   "version": "0.1.0",
   "description": "Cassandra ORM for Node.JS",
-  "main": "main.ts",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "lib/Cassandra.ts",
   "engines": {
     "node": ">=10.0.0"
   },
-  "keywords":[
+  "keywords": [
     "cassandra",
     "cassanKub",
     "nosql",
@@ -23,11 +20,8 @@
     "orm"
   ],
   "scripts": {
-    "start": "ts-node main"
+    "start": "ts-node main.ts"
   },
-  "files":[
-    "lib"
-  ],
   "author": "Kraivit Mongkhonsakunrit",
   "license": "Apache-2.0",
   "dependencies": {
