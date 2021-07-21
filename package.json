@@ -1,5 +1,5 @@
 {
-  "name": "cassanKub",
+  "name": "cassankub",
   "version": "0.1.0",
   "description": "Cassandra ORM for Node.JS",
   "main": "lib/Cassandra.ts",
@@ -31,5 +31,14 @@
     "@types/node": "^15.*",
     "ts-node": "^10.*",
     "typescript": "^4.3.2"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "private": true,
+  "repository": {
+    "url": "https://github.com/ez-kraivit/cassanKub/blob/main/README.md",
+    "type" :"git"
   }
 }
