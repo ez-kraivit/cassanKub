@@ -408,5 +408,5 @@ admin/
 
 database/
 test/
-*.json
+config.json
 *.lock

@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+      "declaration": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitThis": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "composite": false,
+      "removeComments": true,
+      "strictFunctionTypes": true,
+      "skipLibCheck": true,
+      // JSON
+      "resolveJsonModule": true,
+      "allowJs": true,  
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "build",
+      "sourceMap": true,
+      "sourceRoot": "",
+      "target": "es6",
+      "lib": ["ES6","ESNext.AsyncIterable"]
+    },
+    "exclude": [
+      "node_modules"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "atom": { "rewriteTsconfig": false }
+}

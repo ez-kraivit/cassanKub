@@ -1,0 +1,41 @@
+{
+  "name": "cassanKub",
+  "version": "0.1.0",
+  "description": "Cassandra ORM for Node.JS",
+  "main": "main.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "keywords":[
+    "cassandra",
+    "cassanKub",
+    "nosql",
+    "object relational mapper",
+    "db",
+    "cql",
+    "database",
+    "connection",
+    "sql3",
+    "nodejs",
+    "orm"
+  ],
+  "scripts": {
+    "start": "ts-node main"
+  },
+  "files":[
+    "lib"
+  ],
+  "author": "Kraivit Mongkhonsakunrit",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cassandra-driver": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^15.*",
+    "ts-node": "^10.*",
+    "typescript": "^4.3.2"
+  }
+}
