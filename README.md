@@ -13,6 +13,12 @@
 $ npm i cassankub or yarn add cassankub
 ```
 
+
+## DataType
+```sh
+
+```
+
 ## SetupConnect
 ```sh
     {
