@@ -1,7 +1,7 @@
-import Cassandra , {DataType , Model} from "./lib/Cassandra";
-import {LowQuery} from "./lib/LowQuery";
-export default Cassandra
-export { DataType,Model,LowQuery }
+// import Cassandra , {DataType , Model} from "./lib/Cassandra";
+// import {LowQuery} from "./lib/LowQuery";
+// export default Cassandra
+// export { DataType,Model,LowQuery }
 
 // import * as ConfigJson from './config.json'
 // import Cassandra , {DataType} from "./lib/Cassandra";

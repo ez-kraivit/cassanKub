@@ -22,7 +22,6 @@ export class Model {
             parameter.updated_at = { type: LowQuery.TIMESTAMP }
         }
     }
-
     static init(parameter, options: any) {
         this.mappingTimestamps(parameter, options)
         this.options = options

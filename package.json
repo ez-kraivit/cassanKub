@@ -1,8 +1,8 @@
 {
   "name": "cassankub",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Cassandra ORM for Node.JS",
-  "main": "main.ts",
+  "main": "./dist/Cassandra",
   "engines": {
     "node": ">=10.0.0"
   },
