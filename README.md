@@ -16,7 +16,7 @@ $ npm i cassankub or yarn add cassankub
 
 ## DataType
 ```sh
-    import Cassandra,{DataType} from 'cassankub'
+    import cassankub,{DataType} from 'cassankub'
     Cassandra.STRING or DataType.STRING
 ```
 
