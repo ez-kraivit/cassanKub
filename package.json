@@ -2,7 +2,7 @@
   "name": "cassankub",
   "version": "0.1.1",
   "description": "Cassandra ORM for Node.JS",
-  "main": "lib/Cassandra.ts",
+  "main": "main.ts",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -36,9 +36,8 @@
     "lib": "lib",
     "test": "test"
   },
-  "private": true,
   "repository": {
     "url": "https://github.com/ez-kraivit/cassanKub/blob/main/README.md",
-    "type" :"git"
+    "type": "git"
   }
 }

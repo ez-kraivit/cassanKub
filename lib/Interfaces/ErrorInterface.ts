@@ -1,5 +1,5 @@
 export type callback = (err:Error) => void;
-export interface ErrorInterface{
+export interface LogConnectionInterface{
     status?:boolean;
     message?:string;
     error?:callback;
