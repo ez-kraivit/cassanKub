@@ -1,6 +1,6 @@
 {
   "name": "cassankub",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Cassandra ORM for Node.JS",
   "main": "./dist/Cassandra",
   "engines": {
@@ -20,7 +20,9 @@
     "orm"
   ],
   "scripts": {
-    "start": "ts-node main.ts"
+    "start": "ts-node main.ts",
+    "--------build fild-------------":"",
+    "build":"tsc"
   },
   "author": "Kraivit Mongkhonsakunrit",
   "license": "Apache-2.0",
