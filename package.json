@@ -2,7 +2,7 @@
   "name": "cassankub",
   "version": "0.1.4",
   "description": "Cassandra ORM for Node.JS",
-  "main": "./dist/Cassandra.js",
+  "main": "main.js",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "start": "ts-node main.ts",
-    "--------build fild-------------":"",
+    "--------build file-------------":"",
     "build":"tsc"
   },
   "author": "Kraivit Mongkhonsakunrit",

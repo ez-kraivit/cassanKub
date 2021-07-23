@@ -2,7 +2,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/cassanKub-blue)](https://github.com/ez-kraivit/cassanKub) 
 [![standard-readme compliant](https://img.shields.io/badge/cassandra-1000-rad)](https://github.com/ez-kraivit/cassanKub)
 
-## คู่มือการใช้งาน
+## Manual
 
 - [Install](#Install)
 - [Setup Connect](#SetupConnect)
@@ -16,7 +16,8 @@ $ npm i cassankub or yarn add cassankub
 
 ## DataType
 ```sh
-
+    import Cassandra,{DataType} from 'cassankub'
+    Cassandra.STRING or DataType.STRING
 ```
 
 ## SetupConnect
