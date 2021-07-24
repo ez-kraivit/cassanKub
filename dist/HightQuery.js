@@ -22,6 +22,8 @@ class HightQuery {
                     where.push(`${data} = ${query.where[data]}`);
                 else {
                     Object.keys(query.where[data]).map((index) => {
+                        if (index == 'and')
+                            where.push(`${data} = ${query.where[data][index]}`);
                         if (index == 'gt')
                             where.push(`${data} > ${query.where[data][index]}`);
                         if (index == 'gte')

@@ -13,7 +13,24 @@
 $ npm i cassankub or yarn add cassankub
 ```
 
+## Operators
 
+## List Data
+| Type
+|------------- |
+| STRING |
+| UUID |
+| INT |
+| TEXT |
+| FLOAT |
+| BOOLEAN |
+| BIGINT |
+| BLOB |
+| ASCII |
+| DECIMAL |
+| DOUBLE |
+| TIMESTAMP |
+ 
 ## DataType
 ```sh
     import cassankub,{DataType} from 'cassankub'
