@@ -4,8 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 lib/
 package copy.json
-
 main.ts
+
 tsconfig.json
 # User-specific files
 *.rsuser
@@ -414,4 +414,3 @@ test/
 config.json
 *.lock
 
-main.ts
