@@ -31,3 +31,4 @@ class cassankub extends LowQuery_1.LowQuery {
 }
 exports.default = cassankub;
 cassankub.uuid = Uuid.random();
+//# sourceMappingURL=cassankub.js.map

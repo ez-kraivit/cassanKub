@@ -15,3 +15,4 @@ DataType.ASCII = 'ascii';
 DataType.DECIMAL = 'decimal';
 DataType.DOUBLE = 'double';
 DataType.TIMESTAMP = 'timestamp';
+//# sourceMappingURL=DataType.js.map

@@ -56,3 +56,4 @@ class HightQuery {
 }
 exports.HightQuery = HightQuery;
 HightQuery._taboo = ['password', 'id'];
+//# sourceMappingURL=HightQuery.js.map

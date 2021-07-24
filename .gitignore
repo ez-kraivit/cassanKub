@@ -5,7 +5,10 @@
 lib/
 package copy.json
 main.ts
-
+.eslintignore
+.prettierrc
+.travis.yml
+Jenkinsfile
 tsconfig.json
 # User-specific files
 *.rsuser
