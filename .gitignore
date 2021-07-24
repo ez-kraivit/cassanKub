@@ -3,7 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 lib/
-package copy.json/
+package copy.json
+
 main.ts
 tsconfig.json
 # User-specific files

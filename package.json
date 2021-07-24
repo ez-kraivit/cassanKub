@@ -1,5 +1,5 @@
 {
-  "name": "cassankub",
+  "name": "cassanKub",
   "version": "0.1.4",
   "description": "Cassandra ORM for Node.JS",
   "main": "dist/cassankub.js",
