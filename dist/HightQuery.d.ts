@@ -5,4 +5,5 @@ export declare class HightQuery {
     static _allow: boolean;
     static mappingSelect(tableName: string, state: Array<string>, query?: QueryType): typeof HightQuery;
     static find(tableName: string, state: Array<string>, query?: QueryType, projection?: boolean): Promise<any>;
+    static create(tableName: string, state: Array<string>, query?: QueryType): Promise<void>;
 }

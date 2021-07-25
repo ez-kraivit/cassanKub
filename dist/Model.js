@@ -8,12 +8,41 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Model = void 0;
-const lowquery_1 = require("./lowquery");
-const HightQuery_1 = require("./HightQuery");
-class Model {
-    static mappingTimestamps(parameter, option) {
+var lowquery_1 = require("./lowquery");
+var HightQuery_1 = require("./HightQuery");
+var Model = (function () {
+    function Model() {
+    }
+    Model.mappingTimestamps = function (parameter, option) {
         this._tableName = option.tableName;
         this._timestamps = option.timestamps;
         if (option.timestamps) {
@@ -23,53 +52,73 @@ class Model {
             parameter.updated_at = { type: lowquery_1.LowQuery.TIMESTAMP };
         }
         return Model;
-    }
-    static init(parameter, options) {
+    };
+    Model.init = function (parameter, options) {
         this.mappingTimestamps(parameter, options);
         this._options = options;
         this._indexes = options.indexes;
         this._parameter = parameter;
-        this._state = Object.keys(parameter).map((data) => `${data}`);
+        this._state = Object.keys(parameter).map(function (data) { return "" + data; });
         this._options = options;
         this.mappingCQL(parameter, options);
         return this;
-    }
-    static mappingCQL(parameter, option) {
-        const filtered = this.mappingPKey(parameter);
-        this._cql = `CREATE TABLE ${(option.tableName)} (` + Object.keys(parameter).map((data) => `${data} ${(parameter[data].type) ? parameter[data].type : ''}`).join(', ') + ', PRIMARY KEY (' + filtered.map(data => `${data}`).join(', ') + `)) `;
+    };
+    Model.mappingCQL = function (parameter, option) {
+        var filtered = this.mappingPKey(parameter);
+        this._cql = "CREATE TABLE " + (option.tableName) + " (" + Object.keys(parameter).map(function (data) { return data + " " + ((parameter[data].type) ? parameter[data].type : ''); }).join(', ') + ', PRIMARY KEY (' + filtered.map(function (data) { return "" + data; }).join(', ') + ")) ";
         return Model;
-    }
-    static mappingPKey(parameter) {
-        return Object.keys(parameter).filter((element) => { return parameter[element].primaryKey; });
-    }
-    static mappingIndex(tablename, parameter, condition) {
-        return parameter.map((data) => {
+    };
+    Model.mappingPKey = function (parameter) {
+        return Object.keys(parameter).filter(function (element) { return parameter[element].primaryKey; });
+    };
+    Model.mappingIndex = function (tablename, parameter, condition) {
+        return parameter.map(function (data) {
             lowquery_1.LowQuery.CreateIndex(tablename, data, condition);
         });
-    }
-    static sync(option) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (typeof option == 'undefined') {
-                `CREATE TABLE IF NOT EXISTS ` + this._cql.substr(12, this._cql.length);
-                yield lowquery_1.LowQuery.CreateTable(this._cql);
-                if (this._indexes)
-                    this.mappingIndex(this._tableName, this._indexes, "");
-            }
-            else
-                yield lowquery_1.LowQuery.DeleteTable(this._tableName).then(() => {
-                    lowquery_1.LowQuery.CreateTable(this._cql).then(() => {
+    };
+    Model.sync = function (option) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(typeof option == 'undefined')) return [3, 2];
+                        "CREATE TABLE IF NOT EXISTS " + this._cql.substr(12, this._cql.length);
+                        return [4, lowquery_1.LowQuery.CreateTable(this._cql)];
+                    case 1:
+                        _a.sent();
                         if (this._indexes)
-                            Model.mappingIndex(this._tableName, this._indexes, "IF NOT EXISTS");
-                    });
-                });
-            return Model;
+                            this.mappingIndex(this._tableName, this._indexes, "");
+                        return [3, 4];
+                    case 2: return [4, lowquery_1.LowQuery.DeleteTable(this._tableName).then(function () {
+                            lowquery_1.LowQuery.CreateTable(_this._cql).then(function () {
+                                if (_this._indexes)
+                                    Model.mappingIndex(_this._tableName, _this._indexes, "IF NOT EXISTS");
+                            });
+                        })];
+                    case 3:
+                        _a.sent();
+                        _a.label = 4;
+                    case 4: return [2, Model];
+                }
+            });
         });
-    }
-    static find(query, projection) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return HightQuery_1.HightQuery.find(this._tableName, this._state, query, projection);
+    };
+    Model.find = function (query, projection) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, HightQuery_1.HightQuery.find(this._tableName, this._state, query, projection)];
+            });
         });
-    }
-}
+    };
+    Model.create = function (query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, HightQuery_1.HightQuery.create(this._tableName, this._state, query)];
+            });
+        });
+    };
+    return Model;
+}());
 exports.Model = Model;
 //# sourceMappingURL=Model.js.map

@@ -2,6 +2,9 @@
 [![standard-readme compliant](https://img.shields.io/badge/cassanKub-blue)](https://github.com/ez-kraivit/cassanKub) 
 [![standard-readme compliant](https://img.shields.io/badge/cassandra-1000-rad)](https://github.com/ez-kraivit/cassanKub)
 
+## Overview
+cassankub is a Cassandra ORM for NodeJS Support.
+
 ## Manual
 
 - [Install](#Install)
@@ -90,7 +93,7 @@ $ npm i cassankub or yarn add cassankub
     UsersModel.sync() //This creates the table if it doesn't exist (and does nothing if it already exists)
 ```
 
-## find 
+## Find 
 ### UUIDversion4 The system will hide id and password.
 ```sh
     const Users = await UsersModel.find({
@@ -108,3 +111,8 @@ $ npm i cassankub or yarn add cassankub
     console.log(Users);
 ```
 
+## Creating 
+
+
+
+## Injection

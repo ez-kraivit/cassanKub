@@ -3,9 +3,13 @@ export interface ClientOptions {
     contactPoints?: string[];
     localDataCenter?: string;
     keyspace?: string;
+    protocolOptions?: ClientProtocol;
     authProvider?: auth.AuthProvider;
     credentials?: ClientCredentials;
     pooling?: ClientPooling;
+}
+export interface ClientProtocol {
+    port: number;
 }
 export interface ClientPooling {
     coreConnectionsPerHost?: {

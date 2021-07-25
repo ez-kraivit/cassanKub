@@ -4,7 +4,6 @@ import { LogConnectionInterface } from './Interfaces/ErrorInterface';
 import { LowQuery } from './LowQuery';
 import DataType from './DataType';
 import { Model } from './Model';
-export { DataType, Model };
 export default class cassankub extends LowQuery {
     static uuid: any;
     static db: any;
@@ -13,3 +12,4 @@ export default class cassankub extends LowQuery {
     static init(ClientOption: ClientOptions, showlog?: boolean): Promise<any>;
     static validate(uuid: string | Buffer | any): boolean;
 }
+export { DataType, Model, cassankub };
