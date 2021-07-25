@@ -25,7 +25,8 @@
     "test": "test"
   },
   "dependencies": {
-    "cassandra-driver": "^4.6.3"
+    "cassandra-driver": "^4.6.3",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {},
   "scripts": {
