@@ -14,13 +14,13 @@ $ npm i cassankub or yarn add cassankub
 ```
 
 ## Operators
-| name | Support
-|------------- |
-| and   |  =
-| gt    |  >
-| gte   |  >=
-| lt    |  <
-| lte   |  <=
+|name | Support |
+|------------ |
+|and   |  =  |
+|gt    |  >  |
+|gte   |  >= |
+|lt    |  <  |
+|lte   |  <= |
 
 
 ## List Data
