@@ -15,7 +15,7 @@ $ npm i cassankub or yarn add cassankub
 
 ## Operators
 |name | Support |
-|------------ |
+|------------ | ------------ |
 |and   |  =  |
 |gt    |  >  |
 |gte   |  >= |
