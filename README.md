@@ -6,6 +6,11 @@
 
 - [Install](#Install)
 - [Setup Connect](#SetupConnect)
+- [Operators](#Operators)
+- [List Data](#ListData)
+- [DataType](#DataType)
+- [Model](#Model)
+- [find](#find)
 
 
 ## Install
@@ -13,28 +18,18 @@
 $ npm i cassankub or yarn add cassankub
 ```
 
-## Model
+## SetupConnect
 ```sh
-    class UsersModel extends Model { 
+    const config = {
+        "contactPoints":["127.1.1.23"],
+        "localDataCenter":"center1",
+        "keyspace":"",
+        "credentials":{
+            "username": "",
+            "password": ""
+        }
     }
-    UsersModel.init({
-    id: {
-        type: DataType.UUID,
-        primaryKey: true
-    },
-    uid: {
-        type: DataType.STRING
-    },
-    name: {
-        type: DataType.STRING
-    }
-    }, {
-    tableName: "users",
-    timestamps: true, // created_by created_at updated_by updated_at
-    indexes: ["uid", "name"]
-    })
-    UsersModel.sync({force:true}) //This creates the table, dropping it first if it already existed
-    UsersModel.sync() //This creates the table if it doesn't exist (and does nothing if it already exists)
+    await cassankub.init(config) 
 ```
 
 ## Operators
@@ -69,14 +64,43 @@ $ npm i cassankub or yarn add cassankub
     Cassandra.STRING or DataType.STRING
 ```
 
-## SetupConnect
+## Model
 ```sh
-    {
-        "contactPoints":["127.1.1.23"],
-        "localDataCenter":"center1",
-        "keyspace":"",
-        "credentials":{
-            "username": "",
-            "password": ""
+    class UsersModel extends Model { 
     }
+
+    UsersModel.init({
+    id: {
+        type: DataType.UUID,
+        primaryKey: true
+    },
+    uid: {
+        type: DataType.STRING
+    },
+    name: {
+        type: DataType.STRING
+    }
+    },{
+    tableName: "users",
+    timestamps: true, // created_by created_at updated_by updated_at
+    indexes: ["uid", "name"]
+    })
+    
+    UsersModel.sync({force:true}) //This creates the table, dropping it first if it already existed
+    UsersModel.sync() //This creates the table if it doesn't exist (and does nothing if it already exists)
 ```
+
+## find
+### UUIDversion4 The system will hide id and password.
+```sh
+    const Users = await UsersModel.find({
+        where:{
+            id:'0f4ab2f0-d8a5-4749-826b-f364f72f132a', 
+            name:'boy'
+        },
+        select:['name'],
+        limit:1
+    })
+    console.log(Users);
+```
+
