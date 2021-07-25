@@ -13,6 +13,30 @@
 $ npm i cassankub or yarn add cassankub
 ```
 
+## Model
+```sh
+    class UsersModel extends Model { 
+    }
+    UsersModel.init({
+    id: {
+        type: DataType.UUID,
+        primaryKey: true
+    },
+    uid: {
+        type: DataType.STRING
+    },
+    name: {
+        type: DataType.STRING
+    }
+    }, {
+    tableName: "users",
+    timestamps: true, // created_by created_at updated_by updated_at
+    indexes: ["uid", "name"]
+    })
+    UsersModel.sync({force:true}) //This creates the table, dropping it first if it already existed
+    UsersModel.sync() //This creates the table if it doesn't exist (and does nothing if it already exists)
+```
+
 ## Operators
 |name | Support |
 |------------ | ------------ |
