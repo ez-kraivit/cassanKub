@@ -90,13 +90,17 @@ $ npm i cassankub or yarn add cassankub
     UsersModel.sync() //This creates the table if it doesn't exist (and does nothing if it already exists)
 ```
 
-## find
+## find 
 ### UUIDversion4 The system will hide id and password.
 ```sh
     const Users = await UsersModel.find({
         where:{
             id:'0f4ab2f0-d8a5-4749-826b-f364f72f132a', 
-            name:'boy'
+            name:'boy',
+            nickname:['boy'],
+            money:{
+                ['gte']:40
+            }
         },
         select:['name'],
         limit:1
