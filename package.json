@@ -1,6 +1,6 @@
 {
   "name": "cassankub",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Cassandra ORM for Node.JS",
   "main": "dist/cassankub.js",
   "types": "dist/cassankub.d.ts",

@@ -3,7 +3,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/cassandra-1000-rad)](https://github.com/ez-kraivit/cassanKub)
 
 ## Overview
-cassankub is a Cassandra ORM for NodeJS Support.
+cassankub is a Cassandra ORM for TypeScript.
 
 ## Manual
 
