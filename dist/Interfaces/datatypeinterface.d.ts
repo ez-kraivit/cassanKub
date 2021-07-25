@@ -8,13 +8,12 @@ interface OptionType {
     tableName: string;
     timestamps?: boolean;
     indexes?: Array<string>;
-    force?: boolean;
 }
 declare type OperatorType = boolean | string | number | Date;
 interface QueryType {
     select?: Array<string>;
     where?: SubWhere | {
-        [key: string]: Array<OperatorType> | OperatorType;
+        [key: string]: Array<OperatorType> | OperatorType | Object;
     } | {
         [key: string]: {
             [key: string]: OperatorType;

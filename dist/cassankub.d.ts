@@ -6,8 +6,10 @@ import DataType from './DataType';
 import { Model } from './Model';
 export { DataType, Model };
 export default class cassankub extends LowQuery {
-    static uuid: Buffer;
+    static uuid: any;
     static db: any;
-    static log: LogConnectionInterface;
+    static _keyspace: string;
+    static _log: LogConnectionInterface;
     static init(ClientOption: ClientOptions, showlog?: boolean): Promise<any>;
+    static validate(uuid: string | Buffer | any): boolean;
 }

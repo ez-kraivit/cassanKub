@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Model = exports.DataType = void 0;
 const cassandradriver = require("cassandra-driver");
-const Uuid = require("cassandra-driver/lib/types/uuid");
+const uuid_1 = require("uuid");
 const error_1 = require("./messages/error");
 const LowQuery_1 = require("./LowQuery");
 const DataType_1 = require("./DataType");
@@ -22,13 +22,17 @@ class cassankub extends LowQuery_1.LowQuery {
     static init(ClientOption, showlog = true) {
         return __awaiter(this, void 0, void 0, function* () {
             cassankub.db = new cassandradriver.Client(ClientOption);
+            cassankub._keyspace = ClientOption.keyspace;
             if (showlog)
-                cassankub.log = error_1._success.Connect;
-            (typeof (yield cassankub.db.connect()) == 'undefined') ? cassankub.log : cassankub.log = error_1._error.Connect;
+                cassankub._log = error_1._success.Connect;
+            (typeof (yield cassankub.db.connect()) == 'undefined') ? cassankub._log : cassankub._log = error_1._error.Connect;
             return cassankub.db;
         });
     }
+    static validate(uuid) {
+        return uuid_1.validate(uuid) && uuid_1.version(uuid) === 4;
+    }
 }
 exports.default = cassankub;
-cassankub.uuid = Uuid.random();
+cassankub.uuid = uuid_1.v4();
 //# sourceMappingURL=cassankub.js.map

@@ -1,4 +1,4 @@
-import { OptionType, QueryType, ParameterType } from './Interfaces/datatypeinterface';
+import { QueryType, ParameterType } from './Interfaces/datatypeinterface';
 export declare class Model {
     private static _options;
     private static _parameter;
@@ -12,6 +12,8 @@ export declare class Model {
     private static mappingCQL;
     private static mappingPKey;
     private static mappingIndex;
-    static sync(option?: OptionType): Promise<typeof Model>;
+    static sync(option?: {
+        force: boolean;
+    }): Promise<typeof Model>;
     static find(query?: QueryType, projection?: boolean): Promise<any>;
 }
