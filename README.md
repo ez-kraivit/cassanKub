@@ -112,7 +112,20 @@ $ npm i cassankub or yarn add cassankub
 ```
 
 ## Creating 
-
-
+```sh
+    const currentData = {   
+        id:cassankub.uuid,
+        uid:"ww;",
+        name:"test"
+    } // or
+    const currentData = [{   
+        id:cassankub.uuid,
+        uid:"ww;",
+        name:"test"
+    }]
+    const User = await UsersModel.create(currentData)  
+    console.log(User.id);
+      
+```
 
 ## Injection
