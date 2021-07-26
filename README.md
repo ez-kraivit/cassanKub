@@ -115,17 +115,30 @@ $ npm i cassankub or yarn add cassankub
 ```sh
     const currentData = {   
         id:cassankub.uuid,
-        uid:"ww;",
+        uid:"ww",
         name:"test"
     } // or
     const currentData = [{   
         id:cassankub.uuid,
-        uid:"ww;",
+        uid:"ww",
         name:"test"
     }]
     const User = await UsersModel.create(currentData)  
     console.log(User.id);
       
+```
+
+## Updateing
+```sh
+    const currentData = {   
+        sets:{
+            name:"hello"
+        },
+        wheres:{
+            id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+        }
+    }
+    await UsersModel.update(currentData)
 ```
 
 ## Injection
