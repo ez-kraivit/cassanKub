@@ -1,4 +1,4 @@
-import { QueryType, ParameterType, KeyOption } from './Interfaces/datatypeinterface';
+import { QueryType, ParameterType, KeyOption, ArrayOption } from './Interfaces/datatypeinterface';
 export declare class Model {
     private static _options;
     private static _parameter;
@@ -16,5 +16,9 @@ export declare class Model {
         force: boolean;
     }): Promise<typeof Model>;
     static find(query?: QueryType, projection?: boolean): Promise<any>;
-    static create(query?: KeyOption): Promise<void>;
+    static create(query?: KeyOption | ArrayOption): Promise<KeyOption | ArrayOption>;
+    static update(query?: {
+        sets: KeyOption | ArrayOption;
+        wheres?: KeyOption | ArrayOption;
+    }): Promise<any[]>;
 }

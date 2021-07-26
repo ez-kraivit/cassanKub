@@ -1,5 +1,5 @@
 /// <reference types="node" />
-export { OptionType, QueryType, ParameterType, KeyOption };
+export { OptionType, QueryType, ParameterType, KeyOption, ArrayOption };
 interface ParameterType {
     [key: string]: {
         [key: string]: string | boolean | number;
@@ -25,7 +25,10 @@ interface QueryType {
     limit?: number;
 }
 interface KeyOption {
-    [key: string]: string | number | boolean | Buffer;
+    [key: string]: string | number | boolean | Buffer | any;
+}
+interface ArrayOption {
+    [key: string]: KeyOption;
 }
 interface SubWhere {
     [key: string]: {
