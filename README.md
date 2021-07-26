@@ -131,14 +131,79 @@ $ npm i cassankub or yarn add cassankub
 ## Updateing
 ```sh
     const currentData = {   
-        sets:{
+        set:{
             name:"hello"
         },
-        wheres:{
+        where:{
             id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
         }
     }
     await UsersModel.update(currentData)
 ```
+
+## Delete
+```sh
+    const currentData = [
+        {
+             id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+        }
+    ] //or
+        const currentData = {
+             id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+        }
+    await UsersModel.delete(currentData)  
+
+```
+
+## BatchData 
+### Suppoer Array & Object
+```sh
+    const currentData = {   
+        update:[
+            {
+                set:{
+                    name:"hello"
+                },
+                where:{
+                    id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+                }
+            }
+        ],
+        create:[{   
+            id:cassankub.uuid,
+            uid:"ww",
+            name:"test"
+        }],
+        delete:[
+            {
+                id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+            }
+        ]
+    }
+    or
+    const currentData = {   
+        update:
+            {
+                set:{
+                    name:"hello"
+                },
+                where:{
+                    id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+                }
+            }
+        create:{   
+            id:cassankub.uuid,
+            uid:"ww",
+            name:"test"
+        },
+        delete:{
+            {
+                id:`db11a204-9d7d-4ad5-bcdb-f7cb3a9272d9`
+            }
+        }
+    }
+    await UsersModel.batch(currentData)
+```
+
 
 ## Injection

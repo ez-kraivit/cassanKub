@@ -1,5 +1,5 @@
 /// <reference types="node" />
-export { OptionType, QueryType, ParameterType, KeyOption, ArrayOption };
+export { OptionType, QueryType, ParameterType, KeyOption, ArrayOption, BatchOption };
 interface ParameterType {
     [key: string]: {
         [key: string]: string | boolean | number;
@@ -29,6 +29,16 @@ interface KeyOption {
 }
 interface ArrayOption {
     [key: string]: KeyOption;
+}
+interface BatchOption {
+    update?: Array<{
+        set: ArrayOption | KeyOption;
+        where?: ArrayOption | KeyOption;
+    }>;
+    create?: Array<{
+        [key: string]: string | Boolean | number | Date;
+    }>;
+    delete?: any;
 }
 interface SubWhere {
     [key: string]: {

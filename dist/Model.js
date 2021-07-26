@@ -114,14 +114,28 @@ var Model = (function () {
     Model.create = function (query) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2, HightQuery_1.HightQuery.create(this._tableName, this._state, this._timestamps, query)];
+                return [2, HightQuery_1.HightQuery.create(this._tableName, this._timestamps, query)];
             });
         });
     };
     Model.update = function (query) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2, HightQuery_1.HightQuery.update(this._tableName, this._state, this._timestamps, query)];
+                return [2, HightQuery_1.HightQuery.update(this._tableName, this._timestamps, query)];
+            });
+        });
+    };
+    Model.delete = function (query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, HightQuery_1.HightQuery.update(this._tableName, this._timestamps, query)];
+            });
+        });
+    };
+    Model.batch = function (query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, HightQuery_1.HightQuery.batch(this._tableName, this._timestamps, query)];
             });
         });
     };

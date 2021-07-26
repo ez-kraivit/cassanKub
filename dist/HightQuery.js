@@ -100,7 +100,7 @@ var HightQuery = (function () {
             });
         });
     };
-    HightQuery.create = function (tableName, state, timestamps, querye) {
+    HightQuery.create = function (tableName, timestamps, querye) {
         return __awaiter(this, void 0, void 0, function () {
             var queries, params_1, querys;
             return __generator(this, function (_a) {
@@ -133,26 +133,82 @@ var HightQuery = (function () {
             });
         });
     };
-    HightQuery.update = function (tableName, state, timestamps, querye) {
+    HightQuery.update = function (tableName, timestamps, querye) {
         return __awaiter(this, void 0, void 0, function () {
-            var queries, params, querys;
+            var queries, params_2, querys;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queries = [];
-                        params = [];
-                        querys = "UPDATE " + tableName + " SET " + Object.keys(querye.sets).map(function (key) { return key + "=?"; }).join(',') + " " + ((timestamps) ? ',updated_at=?' : '') + " " + ((querye.wheres) ? 'WHERE' : '') + " " + ((querye.wheres) ? Object.keys(querye.wheres).map(function (key) { return key + "=?"; }).join(' AND ') : '');
-                        Object.keys(querye.sets).map(function (key) { return params.push(querye.sets[key]); });
-                        if (timestamps)
-                            params.push(new Date());
-                        if (querye.wheres)
-                            Object.keys(querye.wheres).map(function (key) { return params.push(querye.wheres[key]); });
-                        queries.push({ query: querys, params: params });
+                        if (Array.isArray(querye)) {
+                            querye.map(function (item) {
+                                var params = [], querys;
+                                querys = "UPDATE " + tableName + " SET " + Object.keys(item.set).map(function (key) { return key + "=?"; }).join(',') + " " + ((timestamps) ? ',updated_at=?' : '') + " " + ((item.where) ? 'WHERE' : '') + " " + ((item.where) ? Object.keys(item.where).map(function (key) { return key + "=?"; }).join(' AND ') : '');
+                                Object.keys(item.set).map(function (key) { return params.push(item.set[key]); });
+                                if (timestamps)
+                                    params.push(new Date());
+                                if (item.where)
+                                    Object.keys(item.where).map(function (key) { return params.push(item.where[key]); });
+                                queries.push({ query: querys, params: params });
+                            });
+                        }
+                        else {
+                            params_2 = [], querys = void 0;
+                            querys = "UPDATE " + tableName + " SET " + Object.keys(querye.set).map(function (key) { return key + "=?"; }).join(',') + " " + ((timestamps) ? ',updated_at=?' : '') + " " + ((querye.where) ? 'WHERE' : '') + " " + ((querye.where) ? Object.keys(querye.where).map(function (key) { return key + "=?"; }).join(' AND ') : '');
+                            Object.keys(querye.set).map(function (key) { return params_2.push(querye.set[key]); });
+                            if (timestamps)
+                                params_2.push(new Date());
+                            if (querye.where)
+                                Object.keys(querye.where).map(function (key) { return params_2.push(querye.where[key]); });
+                            queries.push({ query: querys, params: params_2 });
+                        }
                         return [4, LowQuery_1.LowQuery.BatchData(queries)];
                     case 1:
                         _a.sent();
                         return [2, queries];
                 }
+            });
+        });
+    };
+    HightQuery.delete = function (tableName, timestamps, querye) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queries, params_3, querys;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queries = [];
+                        if (Array.isArray(querye)) {
+                            querye.map(function (item) {
+                                var params = [], querys;
+                                querys = "DELETE FROM " + tableName + " WHERE " + ((item) ? Object.keys(item).map(function (key) { return key + "=?"; }).join(' AND ') : '');
+                                Object.keys(item).map(function (key) { return params.push(item[key]); });
+                                queries.push({ query: querys, params: params });
+                            });
+                        }
+                        else {
+                            params_3 = [], querys = void 0;
+                            querys = "DELETE FROM " + tableName + " WHERE " + ((querye) ? Object.keys(querye).map(function (key) { return key + "=?"; }).join(' AND ') : '');
+                            Object.keys(querye).map(function (key) { return params_3.push(querye[key]); });
+                            queries.push({ query: querys, params: params_3 });
+                        }
+                        return [4, LowQuery_1.LowQuery.BatchData(queries)];
+                    case 1:
+                        _a.sent();
+                        return [2, queries];
+                }
+            });
+        });
+    };
+    HightQuery.batch = function (tableName, timestamps, query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                if (Object.keys(query).includes('update'))
+                    this.update(tableName, timestamps, query.update);
+                if (Object.keys(query).includes('create'))
+                    this.create(tableName, timestamps, query.create);
+                if (Object.keys(query).includes('delete'))
+                    this.delete(tableName, timestamps, query.delete);
+                return [2];
             });
         });
     };
