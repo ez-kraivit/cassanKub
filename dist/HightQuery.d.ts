@@ -1,4 +1,4 @@
-import { QueryType, ArrayOption, KeyOption, BatchOption } from './Interfaces/datatypeinterface';
+import { QueryType, ArrayOption, KeyOption, BatchOption } from './Interfaces/DatatypeInterface';
 export declare class HightQuery {
     static _taboo: Array<string>;
     static _cql: string;
