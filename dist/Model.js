@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Model = void 0;
-var lowquery_1 = require("./lowquery");
+var LowQuery_1 = require("./LowQuery");
 var HightQuery_1 = require("./HightQuery");
 var Model = (function () {
     function Model() {
@@ -46,10 +46,10 @@ var Model = (function () {
         this._tableName = option.tableName;
         this._timestamps = option.timestamps;
         if (option.timestamps) {
-            parameter.created_by = { type: lowquery_1.LowQuery.STRING };
-            parameter.created_at = { type: lowquery_1.LowQuery.TIMESTAMP };
-            parameter.updated_by = { type: lowquery_1.LowQuery.STRING };
-            parameter.updated_at = { type: lowquery_1.LowQuery.TIMESTAMP };
+            parameter.created_by = { type: LowQuery_1.LowQuery.STRING };
+            parameter.created_at = { type: LowQuery_1.LowQuery.TIMESTAMP };
+            parameter.updated_by = { type: LowQuery_1.LowQuery.STRING };
+            parameter.updated_at = { type: LowQuery_1.LowQuery.TIMESTAMP };
         }
         return Model;
     };
@@ -73,7 +73,7 @@ var Model = (function () {
     };
     Model.mappingIndex = function (tablename, parameter, condition) {
         return parameter.map(function (data) {
-            lowquery_1.LowQuery.CreateIndex(tablename, data, condition);
+            LowQuery_1.LowQuery.CreateIndex(tablename, data, condition);
         });
     };
     Model.sync = function (option) {
@@ -84,14 +84,14 @@ var Model = (function () {
                     case 0:
                         if (!(typeof option == 'undefined')) return [3, 2];
                         "CREATE TABLE IF NOT EXISTS " + this._cql.substr(12, this._cql.length);
-                        return [4, lowquery_1.LowQuery.CreateTable(this._cql)];
+                        return [4, LowQuery_1.LowQuery.CreateTable(this._cql)];
                     case 1:
                         _a.sent();
                         if (this._indexes)
                             this.mappingIndex(this._tableName, this._indexes, "");
                         return [3, 4];
-                    case 2: return [4, lowquery_1.LowQuery.DeleteTable(this._tableName).then(function () {
-                            lowquery_1.LowQuery.CreateTable(_this._cql).then(function () {
+                    case 2: return [4, LowQuery_1.LowQuery.DeleteTable(this._tableName).then(function () {
+                            LowQuery_1.LowQuery.CreateTable(_this._cql).then(function () {
                                 if (_this._indexes)
                                     Model.mappingIndex(_this._tableName, _this._indexes, "IF NOT EXISTS");
                             });

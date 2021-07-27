@@ -51,9 +51,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cassankub = exports.Model = exports.DataType = void 0;
+exports.uuid = exports.cassankub = exports.Model = exports.DataType = void 0;
 var cassandradriver = require("cassandra-driver");
 var uuid_1 = require("uuid");
+Object.defineProperty(exports, "uuid", { enumerable: true, get: function () { return uuid_1.v4; } });
 var error_1 = require("./messages/error");
 var LowQuery_1 = require("./LowQuery");
 var DataType_1 = require("./DataType");
@@ -86,7 +87,6 @@ var cassankub = (function (_super) {
     cassankub.validate = function (uuid) {
         return uuid_1.validate(uuid) && uuid_1.version(uuid) === 4;
     };
-    cassankub.uuid = uuid_1.v4();
     return cassankub;
 }(LowQuery_1.LowQuery));
 exports.cassankub = cassankub;

@@ -1,4 +1,4 @@
-import { QueryType, ParameterType, KeyOption, ArrayOption, BatchOption } from './Interfaces/datatypeinterface';
+import { QueryType, ParameterType, KeyOption, ArrayOption, BatchOption } from './Interfaces/DatatypeInterface';
 export declare class Model {
     private static _options;
     private static _parameter;

@@ -1,12 +1,13 @@
 {
   "name": "cassankub",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cassandra ORM for Node.JS",
   "main": "dist/cassankub.js",
   "types": "dist/cassankub.d.ts",
   "files": [
     "/dist"
   ],
+  
   "keywords": [
     "cassandra",
     "cassankub",
@@ -31,6 +32,9 @@
   "devDependencies": {},
   "scripts": {
     "start": "ts-node test/test.ts"
+  },
+  "publishConfig": {
+    "registry":"https://www.npmjs.com/package/cassankub"
   },
   "repository": {
     "type": "git",
